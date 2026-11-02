@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Інтерактивна інформаційна карта повітряних тривог України.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="./style.css">
+  <title>ТРИВОГА UA</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">Т</span><div><b>ТРИВОГА UA</b><small>КАРТА ПОВІТРЯНИХ ТРИВОГ</small></div></div>
+    <div class="live"><i></i> LIVE</div>
+  </header>
+  <main>
+    <section class="summary">
+      <div class="summary-main"><span class="eyebrow">СТАН ПО УКРАЇНІ</span><strong id="overall">Завантаження…</strong><small id="updated">Отримуємо актуальні дані</small><small id="connection" class="connection">Підключення…</small></div>
+      <button id="refresh" class="refresh" aria-label="Оновити дані" title="Оновити">↻</button>
+    </section>
+    <section class="legend" aria-label="Позначення">
+      <span><i class="dot red"></i> Тривога</span><span><i class="dot yellow"></i> Часткова / попередження</span><span><i class="dot green"></i> Немає активної тривоги</span><span><i class="dot gray"></i> Немає даних</span>
+    </section>
+    <section class="map-wrap"><div id="map" aria-label="Карта України"></div><div id="map-error" class="map-error hidden"></div></section>
+    <section class="list-panel">
+      <div class="panel-head"><h2>Області та статуси</h2><span id="count">—</span></div>
+      <p id="selected-region" class="selected-region">Натисни на область, щоб переглянути її статус.</p><div id="regions" class="regions"><p class="muted">Завантаження статусів…</p></div>
+    </section>
+    <footer>
+      <p>Дані: <a href="https://neptun.in.ua/" target="_blank" rel="noopener">NEPTUN</a>. Межі областей: відкритий GeoJSON NEPTUN. Інформаційна карта, не офіційний канал оповіщення.</p>
+      <p>У разі сигналу тривоги негайно прямуйте в укриття та дотримуйтеся вказівок місцевої влади.</p>
+      <a href="https://map.ukrainealarm.com/" target="_blank" rel="noopener">Перевірити офіційну карту тривог ↗</a>
+    </footer>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
